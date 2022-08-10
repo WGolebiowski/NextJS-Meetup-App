@@ -1,6 +1,8 @@
+import { useRouter } from "next/router";
 import NewMeetupForm from "../../components/meetups/NewMeetupForm";
 
 const NewMeetupPage = () => {
+  const router = useRouter();
   const addMeetupHandler = async (enteredMeetupData) => {
     console.log(enteredMeetupData);
     const { title, address, description, image } = enteredMeetupData;
@@ -15,6 +17,8 @@ const NewMeetupPage = () => {
     });
 
     const data = await response.json();
+
+    router.push("/");
 
     console.log(data);
   };
